@@ -15,6 +15,6 @@ public class Account {
     }
 
     public void withdraw(Amount amount) {
-
+        balance -= amount.getValue();
     }
 }

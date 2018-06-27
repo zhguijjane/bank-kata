@@ -45,4 +45,12 @@ public class AccountTest {
 
         Assertions.assertThat(account.getBalance()).isEqualTo(0);
     }
+
+    @Test
+    public void should_withdraw_50_from_the_account() {
+        account = new Account(100);
+        account.withdraw(new Amount(50));
+
+        Assertions.assertThat(account.getBalance()).isEqualTo(50);
+    }
 }
