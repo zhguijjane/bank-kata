@@ -32,4 +32,9 @@ public class AccountTest {
 
         Assertions.assertThat(account.getBalance()).isEqualTo(200);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_not_authorize_deposit_negative_value() {
+        account.deposit(new Amount(-10));
+    }
 }
