@@ -62,4 +62,9 @@ public class AccountTest {
 
         Assertions.assertThat(account.getBalance()).isEqualTo(0);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_not_authorize_withdraw_negative_value() {
+        account.withdraw(new Amount(-10));
+    }
 }
