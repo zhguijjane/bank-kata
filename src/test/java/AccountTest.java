@@ -37,4 +37,12 @@ public class AccountTest {
     public void should_not_authorize_deposit_negative_value() {
         account.deposit(new Amount(-10));
     }
+
+
+    @Test
+    public void should_withdraw_0_from_the_account() {
+        account.withdraw(new Amount(0));
+
+        Assertions.assertThat(account.getBalance()).isEqualTo(0);
+    }
 }

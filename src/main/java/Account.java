@@ -13,4 +13,8 @@ public class Account {
     public void deposit(Amount amount) {
         balance += amount.getValue();
     }
+
+    public void withdraw(Amount amount) {
+
+    }
 }
