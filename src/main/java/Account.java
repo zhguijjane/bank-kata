@@ -11,5 +11,6 @@ public class Account {
     }
 
     public void deposit(Amount amount) {
+        balance += amount.getValue();
     }
 }
