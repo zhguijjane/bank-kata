@@ -24,4 +24,12 @@ public class AccountTest {
 
         Assertions.assertThat(account.getBalance()).isEqualTo(100);
     }
+
+    @Test
+    public void should_add_100_twice_to_account() {
+        account.deposit(new Amount(100));
+        account.deposit(new Amount(100));
+
+        Assertions.assertThat(account.getBalance()).isEqualTo(200);
+    }
 }
