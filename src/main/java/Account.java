@@ -15,6 +15,9 @@ public class Account {
     }
 
     public void withdraw(Amount amount) {
+        if (balance - amount.getValue() < 0) {
+            throw new IllegalStateException();
+        }
         balance -= amount.getValue();
     }
 }

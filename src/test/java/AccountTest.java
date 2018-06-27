@@ -67,4 +67,9 @@ public class AccountTest {
     public void should_not_authorize_withdraw_negative_value() {
         account.withdraw(new Amount(-10));
     }
+
+    @Test(expected = IllegalStateException.class)
+    public void should_not_authorize_withdrawal_an_amount_which_is_not_present_in_an_account() {
+        account.withdraw(new Amount(10));
+    }
 }
