@@ -1,5 +1,5 @@
 public class Amount {
-    private final double value;
+    private final long value;
 
     public Amount(long value) {
         if (value < 0) {
@@ -10,5 +10,10 @@ public class Amount {
 
     public double getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
 }
