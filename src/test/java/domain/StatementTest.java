@@ -1,8 +1,6 @@
 package domain;
 
-import domain.Amount;
-import domain.OperationType;
-import domain.Statement;
+import exception.WithdrawException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -56,5 +54,25 @@ public class StatementTest {
 
         statement.print(printer);
         Mockito.verify(printer).print("Withdraw | 2018-06-28 | 300 | 0");
+    }
+
+    @Test
+    public void should_print_all_the_statement() throws WithdrawException {
+        when(dateService.now()).thenReturn(
+                LocalDate.of(2018, 6, 26),
+                LocalDate.of(2018, 6, 27),
+                LocalDate.of(2018, 6, 28));
+
+        Account account = new Account(0, dateService);
+
+        account.deposit(new Amount(1000));
+        account.withdraw(new Amount(300));
+        account.deposit(new Amount(200));
+
+        account.printAllStatement(printer);
+
+        Mockito.verify(printer).print("Deposit | 2018-06-26 | 1000 | 0");
+        Mockito.verify(printer).print("Withdraw | 2018-06-27 | 300 | 1000");
+        Mockito.verify(printer).print("Deposit | 2018-06-28 | 200 | 700");
     }
 }

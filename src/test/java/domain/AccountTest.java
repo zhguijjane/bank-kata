@@ -1,22 +1,28 @@
 package domain;
 
-import domain.Account;
-import domain.Amount;
 import exception.WithdrawException;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import service.DateService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AccountTest {
 
     private Account account;
 
+    @Mock
+    private DateService dateService;
+
     @Before
     public void setUp() {
-        account = new Account(0);
+        account = new Account(0, dateService);
     }
 
     @Test
@@ -57,7 +63,7 @@ public class AccountTest {
 
     @Test
     public void should_withdraw_50_from_the_account() throws WithdrawException {
-        account = new Account(100);
+        account = new Account(100, dateService);
         account.withdraw(new Amount(50));
 
         Assertions.assertThat(account.getBalanceInCents()).isEqualTo(50);
@@ -65,7 +71,7 @@ public class AccountTest {
 
     @Test
     public void should_withdraw_50_twice_from_the_account() throws WithdrawException {
-        account = new Account(100);
+        account = new Account(100, dateService);
         account.withdraw(new Amount(50));
         account.withdraw(new Amount(50));
 
@@ -86,7 +92,7 @@ public class AccountTest {
 
     @Test
     public void should_get_precision_for_withdrawal() throws WithdrawException {
-        account = new Account(103);
+        account = new Account(103, dateService);
         account.withdraw(new Amount(42));
 
         assertThat(account.getBalanceInCents()).isEqualTo(61);

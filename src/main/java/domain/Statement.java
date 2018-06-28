@@ -10,9 +10,9 @@ public class Statement {
     private final OperationType operationType;
     private final LocalDate localDate;
     private final Amount amount;
-    private final int balance;
+    private final long balance;
 
-    public Statement(OperationType operationType, LocalDate localDate, Amount amount, int balance) {
+    public Statement(OperationType operationType, LocalDate localDate, Amount amount, long balance) {
         this.operationType = operationType;
         this.localDate = localDate;
         this.amount = amount;
