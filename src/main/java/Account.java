@@ -1,23 +1,25 @@
+import java.math.BigDecimal;
+
 public class Account {
-    private double balance;
+    private long balanceInCents;
 
-    public Account(double balance) {
-
-        this.balance = balance;
+    public Account(long balanceInCents) {
+        this.balanceInCents = balanceInCents;
     }
 
-    public double getBalance() {
-        return balance;
+    public double getBalanceInCents() {
+        return balanceInCents;
     }
 
     public void deposit(Amount amount) {
-        balance += amount.getValue();
+        balanceInCents += amount.getValue();
     }
 
-    public void withdraw(Amount amount) {
-        if (balance - amount.getValue() < 0) {
-            throw new IllegalStateException();
+    public void withdraw(Amount amount) throws WithdrawException {
+        if (balanceInCents - amount.getValue() < 0) {
+            throw new WithdrawException("You cannot withdraw an amount you do not have on your account.");
         }
-        balance -= amount.getValue();
+        balanceInCents -= amount.getValue();
     }
+
 }
