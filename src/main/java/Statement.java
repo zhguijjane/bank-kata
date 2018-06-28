@@ -1,19 +1,20 @@
+import lombok.Builder;
+
 import java.time.LocalDate;
 
-
+@Builder
 public class Statement {
-    private final String operationType;
+    private final OperationType operationType;
     private final LocalDate localDate;
     private final Amount amount;
     private final int balance;
 
-    public Statement(String operationType, LocalDate localDate, Amount amount, int balance) {
+    public Statement(OperationType operationType, LocalDate localDate, Amount amount, int balance) {
         this.operationType = operationType;
         this.localDate = localDate;
         this.amount = amount;
         this.balance = balance;
     }
-
 
     public void print(Printer printString) {
         printString.print(this.toString());
