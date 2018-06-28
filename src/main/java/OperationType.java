@@ -1,5 +1,6 @@
 public enum OperationType {
-    DEPOSIT("Deposit");
+    DEPOSIT("Deposit"),
+    WITHDRAW("Withdraw");
 
     private String operation;
 
