@@ -7,8 +7,8 @@ simplest solution
 
 ```
 Deposit and Withdrawal
-Account statement (date, amount, balanceInCents)
-Statement printing
+domain.Account statement (date, amount, balanceInCents)
+domain.Statement printing
 ```
 
 ## User Stories

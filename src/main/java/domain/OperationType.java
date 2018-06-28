@@ -1,3 +1,5 @@
+package domain;
+
 public enum OperationType {
     DEPOSIT("Deposit"),
     WITHDRAW("Withdraw");

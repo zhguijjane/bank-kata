@@ -1,4 +1,6 @@
-import java.math.BigDecimal;
+package domain;
+
+import exception.WithdrawException;
 
 public class Account {
     private long balanceInCents;

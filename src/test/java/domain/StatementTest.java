@@ -1,8 +1,15 @@
+package domain;
+
+import domain.Amount;
+import domain.OperationType;
+import domain.Statement;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import service.DateService;
+import service.Printer;
 
 import java.time.LocalDate;
 
