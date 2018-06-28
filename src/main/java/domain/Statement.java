@@ -19,7 +19,7 @@ public class Statement {
         this.balance = balance;
     }
 
-    public void print(Printer printString) {
+    void print(Printer printString) {
         printString.print(this.toString());
     }
 

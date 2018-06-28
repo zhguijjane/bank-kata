@@ -4,7 +4,7 @@ public enum OperationType {
     DEPOSIT("Deposit"),
     WITHDRAW("Withdraw");
 
-    private String operation;
+    private final String operation;
 
     OperationType(String operation) {
         this.operation = operation;
